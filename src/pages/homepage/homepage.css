@@ -1,0 +1,43 @@
+article {
+   border: 1px solid black;
+   background-color: #646464;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 40%;
+   height: auto;
+}
+
+.whitespace {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.thread {
+   display: flex;
+   width: 95%;
+   height: 150px;
+   padding: 10px;
+   margin-bottom: 10px;
+
+   background-color: white;
+   border: 1px solid black;
+   
+}
+
+.left {
+   flex-grow: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.right {
+   flex-grow: 3;
+   padding: 10px;
+   max-width: 75%;
+   
+}
