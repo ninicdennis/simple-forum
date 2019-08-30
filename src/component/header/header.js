@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './header.css'
 import { Link } from 'react-router-dom'
 
-class Header extends React.Component {
+class Header extends Component {
+   constructor(props) {
+      super(props)
+      this.state = {
+
+      }
+   }
+
+   handleClick = (event) => {
+      event.preventDefault()
+      console.log(event.target.value)
+   }
    render() {
       return (
          <div>
@@ -20,6 +31,7 @@ class Header extends React.Component {
                <Link to ='/topic'>Topic </Link>
                <Link to ='/createtopic'>Create Topic</Link>
                <Link to ='/login'>Login</Link>
+
             </div>
          </div>
       )
