@@ -1,5 +1,6 @@
 import React from 'react';
 import './createtopic.css'
+import { Header, Button, Input, TextArea } from 'semantic-ui-react'
 
 class Topic extends React.Component {
    constructor(props){
@@ -37,11 +38,19 @@ class Topic extends React.Component {
       return (
          <div className = 'whitespace'>
             <span className = 'topicmain'>
+               <Header as = 'h1' className = 'header-margin'>
                Submit a topic:
+               </Header>
                <form className = 'formadjust' onSubmit = {e => {this.submitTopic(e)}}>
-                  Title: <input type = 'text' value = {this.state.title} onChange = {this.titleChange} required/>
-                  Body: <textarea name = 'body' value = {this.state.body} onChange = {this.bodyChange} required/>
-                  <button className = 'button'>Submit</button>
+                  <Header>
+                     Title:
+                  </Header>
+                   <Input type = 'text' value = {this.state.title} onChange = {this.titleChange} required/>
+                  <Header>
+                     Body: 
+                  </Header>
+                  <TextArea name = 'body' value = {this.state.body} onChange = {this.bodyChange} required/>
+                  <Button>Submit</Button>
                </form>
             </span>
          </div>

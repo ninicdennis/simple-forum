@@ -1,5 +1,6 @@
 import React from 'react';
 import './homepage.css'
+import { Header, Container } from 'semantic-ui-react';
 
 class Homepage extends React.Component {
    constructor(props){
@@ -8,7 +9,8 @@ class Homepage extends React.Component {
          backendObj: {},
          falseData: {
             user: 'foobar',
-            date: '07/03/2019'
+            date: '07/03/2019',
+            title: 'This is a title.'
          }
       }
    }
@@ -26,38 +28,22 @@ class Homepage extends React.Component {
          <div>
             <div className = 'whitespace'>
             <article>
-               <h1>
+               <Header  as = 'h2' className = 'header-thread'>
                   Recent topics
-               </h1>
+               </Header>
 
                <div className = 'thread'>
-                  <div className = 'left'>
-                     <span>User: {this.state.falseData.user}</span>
-                     <span>Date: {this.state.falseData.date}</span>
-                  </div>
-                  <div className = 'right'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel placerat arcu, ultrices dictum ligula. Maecenas non malesuada magna, vel ullamcorper magna. Aenean vitae orci vel libero bibendum feugiat. Mauris aliquam odio in vehicula fermentum. Morbi ut pulvinar neque. Vivamus a pretium felis, in facilisis risus. Sed eget mi vitae mi accumsan maximus. Aenean imperdiet suscipit ligula sed condimentum. Donec iaculis libero turpis, at varius eros porta eget.
-                  </div>
-               </div>
+                  <Container fluid className = 'userinfo'>
+                     <p>User: {this.state.falseData.user}</p>
+                     <p>Date: {this.state.falseData.date}</p>
+                     <p>Title: {this.state.falseData.title}</p>
+                  </Container>
 
-               <div className = 'thread'>
-                  <div className = 'left'>
-                     <span>User: {this.state.falseData.user}</span>
-                     <span>Date: {this.state.falseData.date}</span>
-                  </div>
-                  <div className = 'right'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel placerat arcu, ultrices dictum ligula. Maecenas non malesuada magna, vel ullamcorper magna. Aenean vitae orci vel libero bibendum feugiat. Mauris aliquam odio in vehicula fermentum. Morbi ut pulvinar neque. Vivamus a pretium felis, in facilisis risus. Sed eget mi vitae mi accumsan maximus. Aenean imperdiet suscipit ligula sed condimentum. Donec iaculis libero turpis, at varius eros porta eget.
-                  </div>
-               </div>
-
-               <div className = 'thread'>
-                  <div className = 'left'>
-                     <span>User: {this.state.falseData.user}</span>
-                     <span>Date: {this.state.falseData.date}</span>
-                  </div>
-                  <div className = 'right'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel placerat arcu, ultrices dictum ligula. Maecenas non malesuada magna, vel ullamcorper magna. Aenean vitae orci vel libero bibendum feugiat. Mauris aliquam odio in vehicula fermentum. Morbi ut pulvinar neque. Vivamus a pretium felis, in facilisis risus. Sed eget mi vitae mi accumsan maximus. Aenean imperdiet suscipit ligula sed condimentum. Donec iaculis libero turpis, at varius eros porta eget.
-                  </div>
+                  <Container>
+                     <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vel placerat arcu, ultrices dictum ligula. Maecenas non malesuada magna, vel ullamcorper magna. Aenean vitae orci vel libero bibendum feugiat. Mauris aliquam odio in vehicula fermentum. Morbi ut pulvinar neque. Vivamus a pretium felis, in facilisis risus. Sed eget mi vitae mi accumsan maximus. Aenean imperdiet suscipit ligula sed condimentum. Donec iaculis libero turpis, at varius eros porta eget.
+                     </p>
+                  </Container>
                </div>
             </article>
             </div>

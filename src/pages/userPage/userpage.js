@@ -1,5 +1,6 @@
 import React from 'react';
 import './userpage.css'
+import { Input, Header, Button } from 'semantic-ui-react';
 
 class Userpage extends React.Component {
    constructor(props){
@@ -58,19 +59,19 @@ class Userpage extends React.Component {
       return (
          <div className = 'whitespace'>
             <div className = 'useredit'>
-               <h2> Edit Your Info:</h2>
+               <Header as= 'h2'> Edit Your Info:</Header>
                <form className = 'formadjust' onSubmit = {e => {this.submitChanges(e)}}>
-                  <p>UserID: {this.state.userID}</p>
-                  <p>Username:</p> 
-                  <input type = 'text' onChange = {this.changeUser}  value = {this.state.tempuser} required/>
-                  <p>First Name:</p> 
-                  <input type = 'text' onChange = {this.changeFirstName} value = {this.state.tempfirstname} required/>
-                  <p>Last Name: </p>
-                  <input type = 'text' onChange = {this.changeLastName} value = {this.state.templastname} required/>
+                  <Header>UserID: {this.state.userID}</Header>
+                  <Header>Username:</Header> 
+                  <Input type = 'text' onChange = {this.changeUser}  value = {this.state.tempuser} required/>
+                  <Header>First Name:</Header> 
+                  <Input type = 'text' onChange = {this.changeFirstName} value = {this.state.tempfirstname} required/>
+                  <Header>Last Name: </Header>
+                  <Input type = 'text' onChange = {this.changeLastName} value = {this.state.templastname} required/>
 
-                  <p>Date Created: {this.state.created}</p>
-                  <p>Posts: {this.state.posts}</p>
-                  <button className = 'button'>Submit!</button>
+                  <Header>Date Created: {this.state.created}</Header>
+                  <Header>Posts: {this.state.posts}</Header>
+                  <Button className = 'button'>Submit!</Button>
                </form>
 
             </div>

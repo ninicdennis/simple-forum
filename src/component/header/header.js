@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import './header.css'
 import { Link } from 'react-router-dom'
 
-class Header extends Component {
+import { Menu , Header, Icon} from 'semantic-ui-react'
+
+class HeaderMain extends Component {
    constructor(props) {
       super(props)
       this.state = {
@@ -17,20 +19,29 @@ class Header extends Component {
    render() {
       return (
          <div>
-            <header>
-               <h1>
-                  Simple forum
-                  <h2>
-                     Making things simpler since 2019.
-                  </h2>
-               </h1>
-            </header>
-            <div className = 'router-bar'>
-               <Link to ='/'>Homepage </Link>
-               <Link to ='/user'>Userpage </Link>
-               <Link to ='/topic'>Topic </Link>
-               <Link to ='/createtopic'>Create Topic</Link>
-               <Link to ='/login'>Login</Link>
+            <Header as='h2' className = 'header-main'>
+               <Icon name='github square' />
+               <Header.Content>Simple Forum</Header.Content>
+               <Header.Subheader>Keeping things real simple.</Header.Subheader>
+            </Header>
+            <div>
+            <Menu className = 'menu-main'>
+                  <Menu.Item>
+                     <Link to ='/'>Homepage </Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                     <Link to ='/user'>Userpage </Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                     <Link to ='/topic'>Topic </Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                     <Link to ='/createtopic'>Create Topic</Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                     <Link to ='/login'>Login</Link>
+                  </Menu.Item>
+               </Menu>
 
             </div>
          </div>
@@ -38,4 +49,4 @@ class Header extends Component {
    }
 }
 
-export default Header
+export default HeaderMain

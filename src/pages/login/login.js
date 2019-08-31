@@ -1,5 +1,6 @@
 import React from 'react';
 import './login.css'
+import { Header, Button, Input } from 'semantic-ui-react'
 
 class Homepage extends React.Component {
    constructor(props){
@@ -15,11 +16,17 @@ class Homepage extends React.Component {
       return (
          <div className = 'center' >
             <div className = 'square-box'>
-               <h1>Login:</h1>
+               <Header as = 'h1'>Login:</Header>
                <form className = 'formbox'>
-                  Username: <input type = 'text' required/>
-                  Password: <input type = 'password' required/>
-                  <button>Login!</button>
+                  <Header as ='h3'>
+                     Username: 
+                  </Header>
+                  <Input type = 'text' required/>
+                  <Header as = 'h3'>
+                     Password: 
+                  </Header>
+                  <Input type = 'password' required/>
+                  <Button>Login</Button>
                </form>
             </div>
          </div>

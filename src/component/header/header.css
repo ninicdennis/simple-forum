@@ -1,14 +1,14 @@
-header {
+.header-main {
    display: flex;
-   flex-direction: row;
    justify-content: center;
    align-items: center;
-   height: 150px;
-   
-   background-color: #646464;
-   border: 1px solid black;
-   
+   flex-direction: column;
+   background-color: #70A3CC;
+   border: 1px solid black !important;
+   margin: 0px !important;
+   padding: 10px !important;
 }
+
 
 h1 {
    display: flex;
@@ -22,10 +22,9 @@ h2 {
    font-family: Source Code Pro;
    font-size: 20px;
 }
-.router-bar {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-evenly;
 
-   border-bottom: 1px solid black;
+.menu-main {
+   display: flex;
+   justify-content: center !important;
+   align-items: center !important;
 }

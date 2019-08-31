@@ -6,7 +6,7 @@
 }
 .useredit {
    border: 1px solid black;
-   background-color: #646464;
+   background-color: #d3d3d3;
    display: flex;
    flex-direction: column;
    align-items: center;
