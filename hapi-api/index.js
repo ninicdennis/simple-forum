@@ -1,11 +1,10 @@
 const Hapi = require('@hapi/hapi');
 const userRoutes = require('./routes/user')
-const knex = require('./knex');
 
 const init = async () => {
 
     const server = Hapi.server({
-        port: 5250,
+        port: 5251,
         host: 'localhost'
     });
 
@@ -13,7 +12,6 @@ const init = async () => {
 
     await server.start();
     console.log('Server running on %s', server.info.uri);
-    console.log(knex)
 };
 
 process.on('unhandledRejection', (err) => {

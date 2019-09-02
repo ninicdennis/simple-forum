@@ -1,11 +1,14 @@
+var knex = require('../knexfile')
+
 const userRoutes = [
    {
       method: 'GET',
       path: '/',
       handler: (request, h) => {
-         var foo = {foo:'bar'}
+         var response = knex.select().table('test_table').timeout(1000)
+         console.log(response)
          console.log('Hitting', h.request.url.href, 'with', h.request.route.method, 'request')
-         return foo
+         return response
       }
    },
    {
