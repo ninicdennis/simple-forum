@@ -27,19 +27,26 @@ class HeaderMain extends Component {
             <div>
             <Menu className = 'menu-main'>
                   <Menu.Item>
-                     <Link to ='/'>Homepage </Link>
+                     <Link to ='/'>
+                        <Icon name = 'home' />Home 
+                        </Link>
                   </Menu.Item>
                   <Menu.Item>
-                     <Link to ='/user'>Userpage </Link>
+                     <Link to ='/createtopic'><Icon name = 'paper plane outline' />Create A Thread
+                     </Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                     <Link to ='/user'>
+                        <Icon name ='cogs' />User Settings
+                        </Link>
+                  </Menu.Item>
+                  <Menu.Item>
+                     <Link to ='/login'>
+                        <Icon name='user outline' />Login
+                        </Link>
                   </Menu.Item>
                   <Menu.Item>
                      <Link to ='/topic'>Topic </Link>
-                  </Menu.Item>
-                  <Menu.Item>
-                     <Link to ='/createtopic'>Create Topic</Link>
-                  </Menu.Item>
-                  <Menu.Item>
-                     <Link to ='/login'>Login</Link>
                   </Menu.Item>
                </Menu>
 

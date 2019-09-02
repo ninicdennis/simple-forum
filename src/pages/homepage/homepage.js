@@ -16,7 +16,7 @@ class Homepage extends React.Component {
    }
 
    componentDidMount() {
-      fetch('http://localhost:5250/', {
+      fetch('http://localhost:5251/', {
          method: 'GET'
       })
       .then(response => response.json())
@@ -48,6 +48,7 @@ class Homepage extends React.Component {
             </article>
             </div>
 
+            <button onClick = {e => {console.log(this.state.backendObj)}}>backendObj Button</button>
 
          </div>
       )
