@@ -27,6 +27,7 @@ class Homepage extends React.Component {
          return ( 
            <div className = 'whitespace' key = {threadStuff.id} >
             <article>
+               
 
             <Header  as = 'h2' className = 'header-thread'>
                {threadStuff.title}
@@ -55,9 +56,6 @@ class Homepage extends React.Component {
             <div className = 'spacing'>
                {renderMe}
             </div>
-
-
-            <button onClick = {e => {console.log(this.state)}}>backendObj Button</button>
          </div>
       )
    }
