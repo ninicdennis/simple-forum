@@ -8,9 +8,11 @@ To run:
 for time sake, I haven't set up a docker file to run it all at once, so you just have to run the api and front end
 seperately. This can be done with NPM.
 
-#Notes
+##Notes
 
 Front end is located at http://locaslhost:3000
 
-API is located at http://localhost:5250
+API is located at http://localhost:5251
+
+Backend is run through a docker container using postgres.
 
