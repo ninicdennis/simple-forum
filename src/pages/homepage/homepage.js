@@ -40,7 +40,7 @@ class Homepage extends React.Component {
                </Container>
 
                <Container>
-                  <p>
+                  <p className = 'threadbody'>
                      {threadStuff.body}
                   </p>
                </Container>

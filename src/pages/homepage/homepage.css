@@ -41,6 +41,13 @@ p {
 
 .userinfo{
    width: 50% !important;
+   border-right: 1px solid black;
+   margin: 10px;
+   padding: 10px;
+}
+
+.threadbody{
+   margin: 15px;
 }
 
 .spacing{

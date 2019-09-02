@@ -3,7 +3,7 @@ import './header.css'
 import { Link } from 'react-router-dom'
 
 import { Menu , Header, Icon} from 'semantic-ui-react'
-
+import LogMeIn from '../../pages/login/login'
 class HeaderMain extends Component {
    constructor(props) {
       super(props)
@@ -43,14 +43,11 @@ class HeaderMain extends Component {
                         </Link>
                   </Menu.Item>
                   <Menu.Item>
-                     <Link to ='/login'>
-                        <Icon name='user outline' />Login
-                        </Link>
-                  </Menu.Item>
-                  <Menu.Item>
                      <Link to ='/topic'>Topic </Link>
                   </Menu.Item>
+                  <LogMeIn /> 
                </Menu>
+               
 
             </div>
          </div>

@@ -1,40 +1,26 @@
-import React from 'react';
-import './login.css'
-import { Header, Button, Input } from 'semantic-ui-react'
+import React from "react";
+import { useAuth0 } from '../../auth0-wrapper';
+import { Button } from 'semantic-ui-react'
 
-class Homepage extends React.Component {
-   constructor(props){
-      super(props)
-      this.state = {
+const NavBar = () => {
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+
+  return (
+   <div>
+     {!isAuthenticated && (
+       <Button
+         onClick={() =>
+           loginWithRedirect({})
          }
-      }
+       >
+         Log in
+       </Button>
+     )}
 
-   componentDidMount() {
-   }
+     {isAuthenticated && <Button onClick={() => logout()}>Log out</Button>}
+   </div>
+ );
+};
 
-   render() {
-      return (
-         <div className = 'center' >
-            <div className = 'square-box'>
-               <Header as = 'h1'>Login:</Header>
-               <form className = 'formbox'>
-                  <Header as ='h3'>
-                     Username: 
-                  </Header>
-                  <Input type = 'text' required/>
-                  <Header as = 'h3'>
-                     Password: 
-                  </Header>
-                  <Input type = 'password' required/>
-                  <div className = 'button-adj'>
-                     <Button>Login</Button>
-                     <Button>Sign Up!</Button>
-                  </div>
-               </form>
-            </div>
-         </div>
-      )
-   }
-}
-
-export default Homepage
+export default NavBar;
