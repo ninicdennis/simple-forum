@@ -26,7 +26,10 @@ class Homepage extends React.Component {
                      Password: 
                   </Header>
                   <Input type = 'password' required/>
-                  <Button>Login</Button>
+                  <div className = 'button-adj'>
+                     <Button>Login</Button>
+                     <Button>Sign Up!</Button>
+                  </div>
                </form>
             </div>
          </div>

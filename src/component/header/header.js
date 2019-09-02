@@ -20,8 +20,10 @@ class HeaderMain extends Component {
       return (
          <div>
             <Header as='h2' className = 'header-main'>
-               <Icon name='github square' />
-               <Header.Content>Simple Forum</Header.Content>
+               <Header.Content>
+                  <Icon name='paper plane outline'/>
+                  Simple Forum
+                  </Header.Content>
                <Header.Subheader>Keeping things real simple.</Header.Subheader>
             </Header>
             <div>

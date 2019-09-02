@@ -6,6 +6,8 @@ article {
    align-items: center;
    width: 40%;
    height: auto;
+   padding: 10px;
+   margin: 10px;
 }
 
 .whitespace {
@@ -39,4 +41,11 @@ p {
 
 .userinfo{
    width: 50% !important;
+}
+
+.spacing{
+   display: flex;
+   flex-direction: column;
+   padding: 10px;
+
 }
