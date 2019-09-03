@@ -44,7 +44,30 @@ const userRoutes = [
          var response = knex('thread_table').del().where('thread_id',request.payload)
          return response
       }
+   },
+   {
+      method: 'GET',
+      path: '/thread/{id}',
+      handler: (request, h) => {
+         console.log('Hitting', h.request.url.href, 'with', h.request.route.method, 'request')
+         console.log('Getting information from Thread: ', request.params.id)
+         var response = knex('thread_table').where('thread_id', request.params.id)
+         return response
+      }
+
+   },
+   {
+      method: 'GET',
+      path: '/threadcomment/{id}',
+      handler: (request, h) => {
+         console.log('Hitting', h.request.url.href, 'with', h.request.route.method, 'request')
+         console.log('Getting information from Thread: ', request.params.id)
+         var response = knex('thread_comments').where('thread_id', request.params.id)
+         return response
+      }
+
    }
+
 
 ]
 
