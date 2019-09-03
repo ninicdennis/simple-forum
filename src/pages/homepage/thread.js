@@ -1,6 +1,7 @@
 import React from 'react';
 import './homepage.css'
 import { Header, Container, Button } from 'semantic-ui-react';
+import { withRouter } from 'react-router-dom';
 
 class ThreadBuild extends React.Component {
    constructor(props){
@@ -38,6 +39,12 @@ class ThreadBuild extends React.Component {
       }
    }
 
+   redirectUser = (event, thread) => {
+      event.preventDefault()
+      console.log('Moving to: ', thread)
+      this.props.history.push('/topic/' + thread)
+   }
+
    render() {
       var renderMe = this.state.backendThread.map(threadProperties => {
          console.log(threadProperties)
@@ -54,6 +61,10 @@ class ThreadBuild extends React.Component {
                )
             }
             
+         }
+
+         var threadButton = () => {
+            return <Button onClick = {e => (this.redirectUser(e,threadProperties.thread_id))}>Go to Thread</Button>
          }
          return ( 
            <div className = 'whitespace' key = {threadProperties.id} >
@@ -75,7 +86,12 @@ class ThreadBuild extends React.Component {
                      {threadProperties.body}
                   </p>
                </Container>
+               <div className = 'vertical-button'>
                {buttonRender()}
+               {threadButton()}
+
+               </div>
+
             </div>
          </article>
          
@@ -92,4 +108,4 @@ class ThreadBuild extends React.Component {
    }
 }
 
-export default ThreadBuild
+export default withRouter(ThreadBuild)

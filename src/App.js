@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Route exact path = '/' component = {Homepage}/>
       <Route exact path = '/user' component = {Userpage} />
-      <Route exact path ='/topic' component = {Topic}/>
+      <Route exact path ='/topic/:id' render={({match}) => <Topic match = {match}/>} />
       <Route exact path ='/createtopic' component = {CreateTopic}/>
     </div>
   );
