@@ -19,7 +19,6 @@ const userRoutes = [
          }
          console.log(newThread)
          console.log('Hitting', h.request.url.href, 'with', h.request.route.method, 'request')
-         // add if statement to check for thread_id already existing. For now I will manually change it.
          var response = knex('thread_table').insert(newThread)
 
          return response
@@ -37,12 +36,13 @@ const userRoutes = [
       }
    },
    {
-      method: 'GET',
-      path: '/user',
+      method: 'DELETE',
+      path: '/thread/{id}',
       handler: (request, h) => {
-         var meme = {this:'meme'}
          console.log('Hitting', h.request.url.href, 'with', h.request.route.method, 'request')
-         return meme
+         console.log(request.payload)
+         var response = knex('thread_table').del().where('thread_id',request.payload)
+         return response
       }
    }
 
