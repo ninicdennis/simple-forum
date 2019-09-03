@@ -22,26 +22,26 @@ class Homepage extends React.Component {
    }
 
    render() {
-      var renderMe = this.state.backendThread.map(threadStuff => {
-         console.log(threadStuff)
+      var renderMe = this.state.backendThread.map(threadProperties => {
+         console.log(threadProperties)
          return ( 
-           <div className = 'whitespace' key = {threadStuff.id} >
+           <div className = 'whitespace' key = {threadProperties.id} >
             <article>
                
 
             <Header  as = 'h2' className = 'header-thread'>
-               {threadStuff.title}
+               {threadProperties.title}
             </Header>
 
             <div className = 'thread'>
                <Container fluid className = 'userinfo'>
-                  <p>User: {threadStuff.user_created}</p>
-                  <p>Date: {threadStuff.date_created}</p>
+                  <p>User: {threadProperties.user_created}</p>
+                  <p>Date: {threadProperties.date_created}</p>
                </Container>
 
                <Container>
                   <p className = 'threadbody'>
-                     {threadStuff.body}
+                     {threadProperties.body}
                   </p>
                </Container>
             </div>
