@@ -42,9 +42,6 @@ class HeaderMain extends Component {
                         <Icon name ='cogs' />User Settings
                         </Link>
                   </Menu.Item>
-                  <Menu.Item>
-                     <Link to ='/topic'>Topic </Link>
-                  </Menu.Item>
                   <LogMeIn /> 
                </Menu>
                
