@@ -1,64 +1,28 @@
 import React from 'react';
 import './homepage.css'
-import { Header, Container } from 'semantic-ui-react';
 
-class Homepage extends React.Component {
-   constructor(props){
-      super(props)
-      this.state = {
-         backendThread: [],
-         testArray:[{name: 'jeff'},{name:'beff'}]
-      }
-   }
+import { useAuth0 } from "../../auth0-wrapper";
+import ThreadBuild from './thread';
 
-   componentDidMount() {
-      fetch('http://localhost:5251/', {
-         method: 'GET'
-      })
-      .then(response => response.json())
-      .then(call => this.setState({backendThread:call}))
-      console.log('State has been set!')
-      
-   }
+const Homepage = () => {
+   const { loading, user } = useAuth0();
 
-   render() {
-      var renderMe = this.state.backendThread.map(threadProperties => {
-         console.log(threadProperties)
-         return ( 
-           <div className = 'whitespace' key = {threadProperties.id} >
-            <article>
-               
+  if (loading || !user) {
+   return (
+      <div>
+         <ThreadBuild userLog = {false}/>
+      </div>
 
-            <Header  as = 'h2' className = 'header-thread'>
-               {threadProperties.title}
-            </Header>
+   );
+ }
+ return (
+      <div>
+         <ThreadBuild userLog = {user.nickname}/>
+       </div>
+ )
 
-            <div className = 'thread'>
-               <Container fluid className = 'userinfo'>
-                  <p>User: {threadProperties.user_created}</p>
-                  <p>Date: {threadProperties.date_created}</p>
-               </Container>
-
-               <Container>
-                  <p className = 'threadbody'>
-                     {threadProperties.body}
-                  </p>
-               </Container>
-            </div>
-         </article>
-         
-         </div>
-         )
-      })
-
-      return (
-         <div>
-            <div className = 'spacing'>
-               {renderMe}
-            </div>
-         </div>
-      )
-   }
 }
 
 export default Homepage
+
+//
