@@ -1,57 +1,25 @@
-import React, {Component} from 'react'
-import { Button , Header, Input } from 'semantic-ui-react'
+import React from 'react';
 import './comments.css'
+import CommentsComp from '../../component/comments/comments'
 
-// this will also need auth0 fixes. For later. Posting comments will not work.
+import { useAuth0 } from "../../auth0-wrapper";
 
-class CommentSection extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      threadComment: []
+const CommentSection = (props) => {
+   const { loading, user } = useAuth0();
+   console.log(props)
 
-    }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:5251/threadcomment/' + this.props.threadInfo,{
-      method:'GET',         
-   })
-   .then(response => response.json())
-   .then(data => this.setState({threadComment: data}))
-  }
-
-  mapComments = () => {
-
-
-  }
-
-  render() {
-    var manyComments = this.state.threadComment.map(commentWrap => {
-      return(
-        <h3 stylename = 'comment-headline'>{commentWrap.username}:{commentWrap.user_comment}</h3>
-      )
-    })
+  if (loading || !user) {
     return(
       <div>
-      <div className = 'commentsection'>
-      <Header as = 'h1' className = 'underline'>
-        Comments: 
-      </Header>
-      <div className = 'commentfixed'>
-      {manyComments}
+        <CommentsComp threadInfo = {props.threadInfo} userNick = {false} />
       </div>
-   </div>
-   <div>
-        <form className ='centerforum'>
-          <Header as = 'h2'>Submit a comment:</Header>
-          <Input type = 'text' />
-          <Button>Submit!</Button>
-        </form>
-      </div>
-   </div>
     )
-  }
+ }
+ return (
+      <div>
+        <CommentsComp threadInfo = {props.threadInfo} userNick = {user.nickname}/>
+       </div>
+ )
 
 }
 
