@@ -66,7 +66,23 @@ const userRoutes = [
          return response
       }
 
-   }
+   },
+   {
+      method: 'POST',
+      path: '/postreply',
+      handler: (request, h) => {
+         console.log(request.payload)
+         const { thread_id , comment_id , user_comment, username} = request.payload
+         const threadReply = {
+            thread_id, comment_id, user_comment, username
+         }
+         console.log(threadReply)
+         console.log('Hitting', h.request.url.href, 'with', h.request.route.method, 'request')
+         var response = knex('thread_comments').insert(threadReply)
+         return response
+
+      }
+   },
 
 
 ]
