@@ -1,0 +1,15 @@
+.main-paragraph{
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   font-size: 18px;
+   width: 50%;
+}
+
+.main-body{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-content: center;
+align-items: center;
+}

@@ -28,6 +28,11 @@ class HeaderMain extends Component {
             </Header>
             <div>
             <Menu className = 'menu-main'>
+               <Menu.Item>
+                  <Link to='/aboutme'>
+                     <Icon name = 'github' /> About Me
+                  </Link>
+               </Menu.Item>
                   <Menu.Item>
                      <Link to ='/'>
                         <Icon name = 'home' />Home 
