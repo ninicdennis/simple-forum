@@ -35,7 +35,10 @@ class ThreadBuild extends React.Component {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(threadUUID)
-         }).then(response => console.log(response))
+         }).then(response => {
+            console.log(response)
+            window.location.reload();
+         })
       }
    }
 

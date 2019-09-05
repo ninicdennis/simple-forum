@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import './createtopic.css'
 import { Header, Button, Input, TextArea } from 'semantic-ui-react'
 import uuid from 'uuid/v1'
+import { withRouter } from 'react-router-dom';
 
 import { useAuth0 } from "../../auth0-wrapper";
 
-const Profile = () => {
+const Profile = (props) => {
    var [title] = useState();
    var [body] = useState()
    var [currentUUID] = useState()
@@ -28,6 +29,7 @@ const Profile = () => {
    body = event.target.value
    console.log(body)
 }
+
    const submitTopic = (event) => {
    event.preventDefault()
    if(title === '' || body === '') {
@@ -57,8 +59,13 @@ const Profile = () => {
       }).then(response => {
          console.log(response)
          if(response.status === 200) {
-            console.log('Successfully Posted.')      
+            console.log('Successfully Posted.')
+            console.log('Moving to: ', currentUUID)
          }
+         props.history.replace('/topic/'+ currentUUID)
+         console.log(this.props)
+
+
       })
    }
 }
@@ -85,4 +92,4 @@ return (
   );
 };
 
-export default Profile;
+export default withRouter(Profile);

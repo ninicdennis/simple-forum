@@ -14,8 +14,6 @@ class CommentComp extends Component {
     }
   }
 
-  
-
   componentDidMount() {
     fetch('http://localhost:5251/threadcomment/' + this.props.threadInfo,{
       method:'GET',         
@@ -28,10 +26,11 @@ class CommentComp extends Component {
   formRender = (isLoggedIn) => {
      if(isLoggedIn === false) {
         return (
-         <div className = 'commentsection'>
-            <Header as='h3' className = 'header-line'>Please Log in to submit a comment!</Header>
-         </div>
-
+           <div className ='commentsection'>
+              <div className = 'centerform'>
+               <Header as='h3' className = 'header-line'>Please Log in to submit a comment!</Header>
+              </div>
+           </div>
         )
      }
       else return(
