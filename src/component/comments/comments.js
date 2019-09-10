@@ -19,7 +19,9 @@ class CommentComp extends Component {
       method:'GET',         
    })
    .then(response => response.json())
-   .then(data => this.setState({threadComment: data}))
+   .then(data => {
+      this.setState({threadComment: data})
+         })
   }
 
 
@@ -78,7 +80,8 @@ class CommentComp extends Component {
       }).then(response => {
          console.log(response)
          if(response.status === 200) {
-            console.log('Successfully Posted.')      
+            console.log('Successfully Posted.')  
+            window.location.reload();    
          }
       })
         

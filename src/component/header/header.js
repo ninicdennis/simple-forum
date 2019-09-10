@@ -5,17 +5,6 @@ import { Link } from 'react-router-dom'
 import { Menu , Header, Icon} from 'semantic-ui-react'
 import LogMeIn from '../../pages/login/login'
 class HeaderMain extends Component {
-   constructor(props) {
-      super(props)
-      this.state = {
-
-      }
-   }
-
-   handleClick = (event) => {
-      event.preventDefault()
-      console.log(event.target.value)
-   }
    render() {
       return (
          <div>
