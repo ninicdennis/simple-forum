@@ -1,0 +1,5 @@
+#!/bin/bash
+clear
+echo "Starting Docker Backend..."
+
+sudo docker run --rm  -p 32777:5432 -P --name docker forum-postgres
