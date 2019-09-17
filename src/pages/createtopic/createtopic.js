@@ -8,8 +8,8 @@ import { useAuth0 } from "../../auth0-wrapper";
 
 const Profile = (props) => {
    var [title] = useState();
-   var [body] = useState()
-   var [currentUUID] = useState()
+   var [body] = useState();
+   var [currentUUID] = useState();
 
   const { loading, user } = useAuth0();
   currentUUID = uuid()

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './topicpage.css'
 import { Header } from 'semantic-ui-react'
 import CommentSection from './comments';
 
 
-class Topic extends React.Component {
+class Topic extends Component {
    constructor(props){
       super(props)
       this.state = {
