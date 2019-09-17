@@ -5,8 +5,16 @@ and using Hapi + knex for the API/Backend.
 
 To run:
 
-for time sake, I haven't set up a docker file to run it all at once, so you just have to run the api and front end
-seperately. This can be done with NPM.
+chmod +x the 3 following files: startapi, startbackend , and generate-data.
+
+Proceed to run in the following order:
+
+./startapi
+
+./startbackend
+
+./generate-data
+
 
 ## Notes
 
