@@ -1,0 +1,3 @@
+knex seed:run will auto populate seed data.
+
+knex migrate:latest should automatically create the table.
