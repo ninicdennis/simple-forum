@@ -3,4 +3,3 @@
 4. Create a user table to update posts, and be able to update SOMETHING.
 5. Generate UUID should probably be inside of the api not the front end. Whoops.
 6. Try to find out why it logs you out when you refresh the page. 
-7. 

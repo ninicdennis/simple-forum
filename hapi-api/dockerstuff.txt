@@ -1,8 +1,0 @@
-sudo docker run --rm -P --name docker forum-postgres
-
-this is to start it
-
-sudo psql -h localhost -p 32769 -d docker -U docker --password
-
-this is to connect to postgres via docker, -p check for the port
-with docker -ps, because it may or may not be correct next time.
