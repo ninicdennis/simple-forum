@@ -5,7 +5,7 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('thread_table').insert([
-        {thread_id: 1 , title: 'foo', body: 'bar', date_created: '07/03/1999',user_created: 'mehopuzic123'},
+        {thread_id: 1 , title: 'Test Title', body: 'Test Body!', date_created: '07/03/1999',user_created: 'mehopuzic123'},
       ]);
     });
 };
