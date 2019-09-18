@@ -81,7 +81,11 @@ class CommentComp extends Component {
          console.log(response)
          if(response.status === 200) {
             console.log('Successfully Posted.')  
-            window.location.reload();    
+            fetch('http://localhost:5251/threadcomment/' + this.props.threadInfo,{
+               method:'GET'})
+            .then(response => response.json())
+            .then(data => {this.setState({threadComment: data})
+         })
          }
       })
         
