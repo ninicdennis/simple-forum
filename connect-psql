@@ -1,0 +1,5 @@
+#!/bin/bash
+clear
+echo "Connecting to postgresql docker container located at: Port 32777"
+
+sudo psql -h localhost -p 32777 -d docker -U docker --password
