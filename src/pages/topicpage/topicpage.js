@@ -29,18 +29,18 @@ class Topic extends Component {
    render() {
       var threadArray = this.state.threadData.map(threadValue => {
          return(
-            <div className = 'main'>
+            <div className = 'main' key = {threadValue}>
                <Header as= 'h2' className = 'title'>
                  {threadValue.title}
                </Header>
-               <p className = 'topics'>
+               <div className = 'topics'>
                   <Header as= 'h3' className ='bottom-line'>
                      Created By: {threadValue.user_created}
                   </Header>
                   {threadValue.body}
                      
                <span>Date:{threadValue.date_created}</span>
-               </p>
+               </div>
             </div>
          )
       })

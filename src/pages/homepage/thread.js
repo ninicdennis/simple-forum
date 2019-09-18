@@ -58,7 +58,7 @@ class ThreadBuild extends React.Component {
             if(threadProperties.user_created === this.props.userLog) {
                console.log('Button will render for your own threads.')
                return (
-                  <Button onClick ={e => this.deleteMe(e, threadProperties.thread_id, this.props.userLog, threadProperties.user_created)}> 
+                  <Button key = {threadProperties} onClick ={e => this.deleteMe(e, threadProperties.thread_id, this.props.userLog, threadProperties.user_created)}> 
                   Delete Me !
                   </Button>
                )
@@ -70,7 +70,7 @@ class ThreadBuild extends React.Component {
             return <Button onClick = {e => (this.redirectUser(e,threadProperties.thread_id))}>Go to Thread</Button>
          }
          return ( 
-           <div className = 'whitespace' key = {threadProperties.id} >
+           <div className = 'whitespace' key = {threadProperties} >
             <article>
                
 

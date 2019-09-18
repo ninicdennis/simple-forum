@@ -91,7 +91,7 @@ class CommentComp extends Component {
   render() {
     var manyComments = this.state.threadComment.map(commentWrap => {
       return(
-        <h3 stylename = 'comment-headline'>{commentWrap.username}:{commentWrap.user_comment}</h3>
+        <h3 stylename = 'comment-headline' key = {commentWrap.thread_id}>{commentWrap.username}:{commentWrap.user_comment}</h3>
       )
     })
     return(
