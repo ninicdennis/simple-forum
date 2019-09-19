@@ -33,3 +33,15 @@ margin: 20px;
    margin-top: 10px;
    width: 100%;
 }
+
+.delete-me {
+   width: auto;
+}
+
+.comment-headline {
+   display: flex !important;
+   flex-direction: row !important;
+   justify-content: center  !important;
+   align-items: center !important;
+   width: 100% !important;
+}

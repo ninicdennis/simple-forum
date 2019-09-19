@@ -75,6 +75,16 @@ const userRoutes = [
 
       }
    },
+   {
+      method: 'DELETE',
+      path: '/deletecomment',
+      handler: (request, h) => {
+         console.log(request.payload)
+         const {comment_id} = request.payload
+         var response = knex('thread_comments').where('comment_id', comment_id).del()
+         return response
+      }
+   }
 
 
 ]
