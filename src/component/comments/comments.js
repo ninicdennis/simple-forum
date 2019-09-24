@@ -30,15 +30,16 @@ class CommentComp extends Component {
          </div>
         )
      }
-      else return(
-      <div className = 'commentsection'>
-      <form className ='centerforum' onSubmit = {e => {this.submitComment(e, this.state.replyValue, isLoggedIn)}}>
-        <Header as = 'h2' className = 'header-line'>Submit a comment:</Header>
-        <Input type = 'text' value = {this.replyValue} onChange = {this.updateComment}/>
-        <Button>Submit!</Button>
-      </form>
-    </div>
-     )
+      else {
+         return(
+         <div className = 'commentsection'>
+         <form className ='centerforum' onSubmit = {e => {this.submitComment(e, this.state.replyValue, isLoggedIn)}}>
+            <Header as = 'h2' className = 'header-line'>Submit a comment:</Header>
+            <Input type = 'text' value = {this.replyValue} onChange = {this.updateComment}/>
+            <Button>Submit!</Button>
+         </form>
+      </div>
+     )}
 
   }
 
@@ -64,25 +65,36 @@ class CommentComp extends Component {
    })
   }
 
-  // Will have to change user logged in to validate that the correct user is logged in and render the button from there. 
+  // Will have to change user logged in to validate that the correct user is logged in and render the button from there.
   renderComments = (userLoggedIn) => {
    var manyComments = this.state.threadComment.map(commentWrap => {
       if(userLoggedIn === false){
          return (
          <h3  className = 'comment-headline' key = {commentWrap.thread_id}>
-            <div>{commentWrap.username}:</div>
+            <div>{commentWrap.username} commented: </div>
             <div>{commentWrap.user_comment} </div>
          </h3>
          )
       }
       else{
-         return(
+         console.log(userLoggedIn)
+         if(userLoggedIn === commentWrap.username) {
+            return(
+               <h3  className = 'comment-headline' key = {commentWrap.thread_id}>
+                  <div>{commentWrap.username} commented: </div>
+                  <div>{commentWrap.user_comment} </div>
+                  <Button onClick = {e => {this.deleteButton(e, commentWrap.comment_id)}}>Delete</Button>
+               </h3>
+            )
+
+         }
+         else return (
             <h3  className = 'comment-headline' key = {commentWrap.thread_id}>
-               <div>{commentWrap.username}:</div>
+               <div>{commentWrap.username} commented: </div>
                <div>{commentWrap.user_comment} </div>
-               <Button onClick = {e => {this.deleteButton(e, commentWrap.comment_id)}}>Delete</Button>
             </h3>
          )
+
       }
     })
     return manyComments
