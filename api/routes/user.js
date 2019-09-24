@@ -28,6 +28,17 @@ const userRoutes = [
       }
    },
    {
+      method: 'GET',
+      path: '/{id}',
+      handler: (request, h) => {
+         console.log('Getting post amount from user: ',request.params.id)
+         var response = knex('thread_table').where({
+            user_created: request.params.id
+         }).select()
+         return response
+      }
+   },
+   {
       method: 'DELETE',
       path: '/thread/{id}',
       handler: (request, h) => {
