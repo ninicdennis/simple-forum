@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuth0 } from "../../auth0-wrapper";
 import {Image, Header} from 'semantic-ui-react'
+import UserInfo from "./userInfo";
 
 const Userpage = () => {
   const { loading, user } = useAuth0();
@@ -11,15 +12,20 @@ const Userpage = () => {
     );
   }
 
-  return (
-    <div className = 'whitespace'>
-      <Image src={user.picture} alt="Profile" size = 'small' />
+  const userPosts = (username) => {
+    fetch('http://localhost:5251/' + username)
+    .then(response => {
+      console.log(response)
+    })
+  }
 
-      <Header as = 'h2'>Name: {user.name}</Header>
-      <p>Email: {user.email}</p>
-      <p>Username: {user.nickname}</p>
-      <p>Posts: 0</p>
-    </div>
+  return (
+
+    <UserInfo 
+    UserLogged = {user.nickname}
+    UserRealName = {user.name}
+    UserEmail = {user.email}
+    UserPicture = {user.picture}/>
   );
 };
 
