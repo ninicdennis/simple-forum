@@ -20,16 +20,15 @@ class UserInfo extends Component {
    render() {
       return (
       <div className = 'whitespace'>
+         <div className = 'boxy'>
          <Image src={this.props.UserPicture} alt="Profile" size = 'small' />
-       
              <Header as = 'h2'>Name: {this.props.UserRealName}</Header>
              <p>Email: {this.props.UserEmail}</p>
              <p>Username: {this.props.UserLogged}</p>
              <p>Posts: {this.state.postCount.length}</p>
              <button onClick = {e => {console.log(this.state.postCount)}}>STATE</button>
-
+            </div>
            </div>
-
       )
    }
 }

@@ -76,6 +76,7 @@ class ThreadBuild extends React.Component {
 
             <Header  as = 'h2' className = 'header-thread'>
                {threadProperties.title}
+
             </Header>
 
             <div className = 'thread'>
