@@ -5,6 +5,8 @@ and using Hapi + knex for the API/Backend.
 
 To run:
 
+To start, please run npm install in the /src folder. This may take a while.
+
 chmod +x the 3 following files: startapi, startbackend , and generate-data.
 
 Proceed to run in the following order:
@@ -15,6 +17,9 @@ Proceed to run in the following order:
 
 ./generate-data
 
+npm start
+
+Notice, these do not have to be run in order, although I find it helpful following the order the data goes through.
 
 ## Notes
 
