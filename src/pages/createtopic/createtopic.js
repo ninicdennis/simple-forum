@@ -37,9 +37,11 @@ const Profile = (props) => {
    else {
       var threadDay = new Date()
       var year = threadDay.getFullYear()
-      var day = threadDay.getDay() + 1
+      var day = threadDay.getDate()
       var month = threadDay.getMonth() + 1
       var totalDay = month + '/' + day + '/' + year
+
+      console.log('The current day is : ', totalDay)
 
       fetch('http://localhost:5251/postthread', {
          method: 'POST',
