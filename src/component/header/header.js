@@ -9,9 +9,14 @@ class HeaderMain extends Component {
       return (
          <div>
             <Header as='h2' className = 'header-main'>
-               <Header.Content>
-                  <Icon name='paper plane outline'/>
-                  Simple Forum
+               <Header.Content >
+                  <Link to = '/'>
+                  
+                     <div style = {{color: 'black'}}>
+                       <Icon name='paper plane outline'/>
+                        Simple Forum
+                     </div>
+                  </Link>
                   </Header.Content>
                <Header.Subheader>Keeping things real simple.</Header.Subheader>
             </Header>
@@ -37,9 +42,8 @@ class HeaderMain extends Component {
                         </Link>
                   </Menu.Item>
                   <LogMeIn /> 
-               </Menu>
-               
 
+               </Menu>
             </div>
          </div>
       )
