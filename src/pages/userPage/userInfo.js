@@ -26,7 +26,6 @@ class UserInfo extends Component {
              <p>Email: {this.props.UserEmail}</p>
              <p>Username: {this.props.UserLogged}</p>
              <p>Posts: {this.state.postCount.length}</p>
-             <button onClick = {e => {console.log(this.state.postCount)}}>STATE</button>
             </div>
            </div>
       )
