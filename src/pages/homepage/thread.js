@@ -35,9 +35,17 @@ class ThreadBuild extends React.Component {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(threadUUID)
+            // I can grab this from the api instead of passing it from the body.
+
+            // Take it from request.params.id from the api
          }).then(response => {
             console.log(response)
-            window.location.reload();
+            fetch('http://localhost:5251/', {
+               method: 'GET'
+            })
+            .then(response => response.json())
+            .then(call => this.setState({backendThread:call}))
+            console.log('State has been set!')
          })
       }
    }
@@ -54,11 +62,14 @@ class ThreadBuild extends React.Component {
          var buttonRender = () => {
             if(this.props.userLog === false) {
                console.log('Invalid user to delete.')
+               console.log('This is threadproperties...' , threadProperties.thread_id)
+
             }
             if(threadProperties.user_created === this.props.userLog) {
                console.log('Button will render for your own threads.')
                return (
-                  <Button key = {threadProperties} onClick ={e => this.deleteMe(e, threadProperties.thread_id, this.props.userLog, threadProperties.user_created)}> 
+                  // template strings on delete
+                  <Button key = {'delete-' + threadProperties.thread_id} onClick ={e => this.deleteMe(e, threadProperties.thread_id, this.props.userLog, threadProperties.user_created)}> 
                   Delete Me !
                   </Button>
                )
@@ -67,10 +78,10 @@ class ThreadBuild extends React.Component {
          }
 
          var threadButton = () => {
-            return <Button onClick = {e => (this.redirectUser(e,threadProperties.thread_id))}>Go to Thread</Button>
+            return <Button key = {threadProperties.thread_id} onClick = {e => (this.redirectUser(e,threadProperties.thread_id))}>Go to Thread</Button>
          }
          return ( 
-           <div className = 'whitespace' key = {threadProperties} >
+           <div className = 'whitespace' key = {threadProperties.thread_id} >
             <article>
                
 
