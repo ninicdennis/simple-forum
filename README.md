@@ -7,6 +7,10 @@ To run:
 
 To start, please run npm install in the /src folder. This may take a while.
 
+If you dont already, install knex globaly to your machine so that you may run the migrations.
+
+go into /api, and run docker build -t forum-postgres. This will create the image for docker.
+
 chmod +x the 3 following files: startapi, startbackend , and generate-data.
 
 Proceed to run in the following order:
