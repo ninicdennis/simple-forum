@@ -65,8 +65,6 @@ const Profile = (props) => {
             console.log('Moving to: ', currentUUID)
          }
          props.history.replace('/topic/'+ currentUUID)
-         console.log(this.props)
-
 
       })
    }
