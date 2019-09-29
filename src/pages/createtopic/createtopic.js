@@ -21,13 +21,11 @@ const Profile = (props) => {
   const titleChange = (event) => {
    event.preventDefault()
    title = event.target.value
-   console.log(title)
 }
 
    const bodyChange = (event) => {
    event.preventDefault()
    body = event.target.value
-   console.log(body)
 }
 
    const submitTopic = (event) => {
@@ -39,7 +37,7 @@ const Profile = (props) => {
       var year = threadDay.getFullYear()
       var day = threadDay.getDate()
       var month = threadDay.getMonth() + 1
-      var totalDay = month + '/' + day + '/' + year
+      var totalDay =`${month}/${day}/${year}`
 
       console.log('The current day is : ', totalDay)
 

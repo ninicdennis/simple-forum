@@ -19,7 +19,6 @@ class ThreadBuild extends React.Component {
       .then(call => this.setState({backendThread:call}))
       console.log('State has been set!')
    }
-// Most likely will have to add auth0 to this in order for the specific user to delete their post.
    deleteMe = (event, threadUUID, isLoggedIn, userCreated) => {
       event.preventDefault();
       console.log('Hitting this thread with a delete: ',threadUUID)
@@ -80,6 +79,7 @@ class ThreadBuild extends React.Component {
          var threadButton = () => {
             return <Button key = {threadProperties.thread_id} onClick = {e => (this.redirectUser(e,threadProperties.thread_id))}>Go to Thread</Button>
          }
+
          return ( 
            <div className = 'whitespace' key = {threadProperties.thread_id} >
             <article>
@@ -87,9 +87,7 @@ class ThreadBuild extends React.Component {
 
             <Header  as = 'h2' className = 'header-thread'>
                {threadProperties.title}
-
             </Header>
-
             <div className = 'thread'>
                <Container fluid className = 'userinfo'>
                   <p>User: {threadProperties.user_created}</p>
@@ -102,11 +100,9 @@ class ThreadBuild extends React.Component {
                   </p>
                </Container>
                <div className = 'vertical-button'>
-               {buttonRender()}
-               {threadButton()}
-
+                  {buttonRender()}
+                  {threadButton()}
                </div>
-
             </div>
          </article>
          

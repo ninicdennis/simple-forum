@@ -7,14 +7,14 @@ render() {
    return (
       <div className='main-body'>
          <Header as='h1'>Hello There!</Header>
-         <p className = 'main-paragraph'>
+         <div className = 'main-paragraph'>
             Hello, my name is Dennis Ninic, I go by pupper-bot on github, or just Pupperbot, and I am a React full stack web developer!
             I am a huge nerd, and fell in love with web development when my boss showed me
             one of his projects for web development. I decided that I wanted to do the same
             thing, and here I am! 
-         </p>
+         </div>
 
-         <p className ='main-paragraph'>
+         <div className ='main-paragraph'>
             This Forum aptly named Simple-Forum, was one of my final projects for the coding bootcamp I have been taking this last year.
             This project started from the idea simplicity. I wanted the front end to be very minimal yet effective, with a comprehensive
             UI (I tried making it look presentable!), while keeping the codebase clean and easily readable.
@@ -28,13 +28,13 @@ render() {
             </ul>
             I have been working on this for the past couple weeks now, and am really proud with how much I have learned over the past year.
             This will always be a benchmark for my abilities as a web developer, and can not wait to become part of the community.
-         </p>
-         <p className ='main-paragraph'>
+         </div>
+         <div className ='main-paragraph'>
             I hope you all enjoy! Here are some helpful links to get you by:
             <ul>
                <li><a href = 'https://github.com/pupper-bot/simple-forum'>Github</a></li>
             </ul>
-         </p>
+         </div>
       </div>
    )};
 }

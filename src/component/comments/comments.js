@@ -9,7 +9,8 @@ class CommentComp extends Component {
     super(props);
     this.state = {
       threadComment: [],
-      replyValue: ''
+      replyValue: '',
+      isCommentReal: false
 
     }
   }
@@ -17,7 +18,14 @@ class CommentComp extends Component {
   componentDidMount() {
     fetch('http://localhost:5251/threadcomment/' + this.props.threadInfo,{method:'GET'})
    .then(response => response.json())
-   .then(data => {this.setState({threadComment: data})})
+   .then(data => {
+      console.log('data',data)
+      if(data.length === 0) {
+         console.log('No comments :^(')
+         this.setState({isCommentReal: false})
+      }
+      else this.setState({threadComment: data, isCommentReal: true})
+      })
   }
 
   formRender = (isLoggedIn) => {
@@ -59,18 +67,24 @@ class CommentComp extends Component {
      .then(response => console.log(response))
      .then(value => {
         console.log(value)
-      fetch('http://localhost:5251/threadcomment/' + this.props.threadInfo,{method:'GET',})
+      fetch('http://localhost:5251/threadcomment/' + this.props.threadInfo)
          .then(response => response.json())
          .then(data => {this.setState({threadComment: data})})
    })
   }
 
-  // Will have to change user logged in to validate that the correct user is logged in and render the button from there.
-  renderComments = (userLoggedIn) => {
+  renderComments = (userLoggedIn, commentStatus) => {
+     if(commentStatus === false ) {
+        return (
+           <div>
+              No comments!
+           </div>
+        )
+     }
    var manyComments = this.state.threadComment.map(commentWrap => {
       if(userLoggedIn === false){
          return (
-         <h3  className = 'comment-headline' key = {commentWrap.thread_id}>
+         <h3  className = 'comment-headline' key = {commentWrap.comment_id}>
             <div>{commentWrap.username} commented: </div>
             <div>{commentWrap.user_comment} </div>
          </h3>
@@ -80,7 +94,7 @@ class CommentComp extends Component {
          console.log(userLoggedIn)
          if(userLoggedIn === commentWrap.username) {
             return(
-               <h3  className = 'comment-headline' key = {commentWrap.thread_id}>
+               <h3  className = 'comment-headline' key = {`commentID ${commentWrap.comment_id}`}>
                   <div>{commentWrap.username} commented: </div>
                   <div>{commentWrap.user_comment} </div>
                   <Button onClick = {e => {this.deleteButton(e, commentWrap.comment_id)}}>Delete</Button>
@@ -89,7 +103,7 @@ class CommentComp extends Component {
 
          }
          else return (
-            <h3  className = 'comment-headline' key = {commentWrap.thread_id}>
+            <h3  className = 'comment-headline' key = {commentWrap.comment_id}>
                <div>{commentWrap.username} commented: </div>
                <div>{commentWrap.user_comment} </div>
             </h3>
@@ -132,11 +146,8 @@ class CommentComp extends Component {
             .then(data => {this.setState({threadComment: data, replyValue: ''})
          })
          }
-      })
-        
+      }) 
      }
-
-     
   }
 
   render() {
@@ -147,7 +158,7 @@ class CommentComp extends Component {
             Comments: 
             </Header>
             <div className = 'commentfixed'>
-            {this.renderComments(this.props.userNick)}
+            {this.renderComments(this.props.userNick, this.state.isCommentReal)}
             </div>
          </div>
          {this.formRender(this.props.userNick)}
