@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.2.2",
+    "@auth0/auth0-spa-js": "^1.2.4",
     "@hapi/hapi": "^18.4.0",
+    "eslint": "^6.5.1",
     "knex": "^0.19.4",
     "pg": "^7.12.1",
     "psql": "0.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
-    "react-router-dom": "^5.0.1",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.1",
     "semantic-ui-react": "^0.88.0",
     "uuid": "^3.3.3"
