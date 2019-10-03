@@ -18,6 +18,19 @@ const userRoutes = [
       }
    },
    {
+      method: 'PUT',
+      path: '/thread/{id}',
+      handler: (request, h) => {
+         console.log('Hitting', h.request.url.href, 'with', h.request.route.method, 'request')
+         console.log('Update Request with data: ',request.payload)
+         const { body, thread_id } = request.payload
+         response = knex('thread_table').where('thread_id', '=', thread_id).update({body})
+
+         return response
+
+      }
+   },
+   {
       method: 'GET',
       path: '/',
       handler: (request, h) => {
