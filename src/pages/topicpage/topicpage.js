@@ -3,7 +3,6 @@ import './topicpage.css'
 import { Header, Button } from 'semantic-ui-react'
 import CommentSection from './comments';
 
-
 class Topic extends Component {
    constructor(props){
       super(props)
@@ -16,7 +15,7 @@ class Topic extends Component {
       }
    } 
    componentDidMount() {
-      fetch('http://localhost:5251/thread/' + this.props.match.params.id,{
+      fetch(`http://localhost:5251/thread/${this.props.match.params.id}`,{
          method:'GET',         
       })
       .then(response => response.json())
@@ -58,7 +57,7 @@ class Topic extends Component {
       .then(response => response.json())
       .then(update => {
          console.log(update)
-         fetch('http://localhost:5251/thread/' + this.props.match.params.id,{
+         fetch(`http://localhost:5251/thread/${this.props.match.params.id}`,{
          method:'GET',         
       })
       .then(response => response.json())
@@ -71,51 +70,68 @@ class Topic extends Component {
 
    updateArea = () => {
       var threadValue = this.state.threadData
-
-      return(
-         <div className = 'main' key = {threadValue}>
-            <Header as= 'h2' className = 'title'>
-              {threadValue.title}
+         return(
+            <div className = 'main' key = {threadValue}>
+               <Header as= 'h2' className = 'title'>
+                 {threadValue.title}
                </Header>
-               <div className = 'topics'>
-                  <Header as= 'h3' className ='bottom-line'>
-                     Created By: {threadValue.user_created}
-                  </Header>
-                  <textarea value = {this.state.threadDataEdit} onChange = {this.updateThreadBody} />
-               <span>
-                  Date:{threadValue.date_created}
-                  <Button onClick = {e => this.setState({edit: false})}>Edit</Button>
-                  <Button onClick = {e => this.sendUpdate(e, this.state.threadDataEdit)}>Update</Button>
-               </span>
-               
+                  <div className = 'topics'>
+                     <Header as= 'h3' className ='bottom-line'>
+                        Created By: {threadValue.user_created}
+                     </Header>
+                        <textarea value = {this.state.threadDataEdit} onChange = {this.updateThreadBody} />
+                     <span>
+                        Date:{threadValue.date_created}
+                        <Button onClick = {e => this.setState({edit: false})}>Edit</Button>
+                        <Button onClick = {e => this.sendUpdate(e, this.state.threadDataEdit)}>Update</Button>
+                     </span>
                </div>
             </div>
-      )
+            ) 
    }
 
-   topicRender =() => {
+   topicRender = () => {
       var threadValue = this.state.threadData
 
       console.log('HERE', threadValue)
-      return(
-         <div className = 'main' key = {threadValue}>
-         <Header as= 'h2' className = 'title'>
-           {threadValue.title}
-         </Header>
-         <div className = 'topics'>
-            <Header as= 'h3' className ='bottom-line'>
-               Created By: {threadValue.user_created}
+      if(this.props.userLog === false) {
+         return(
+            <div className = 'main' key = {threadValue}>
+            <Header as= 'h2' className = 'title'>
+              {threadValue.title}
             </Header>
-            {threadValue.body}
-         <span>
-            Date:{threadValue.date_created}
-            {/* check to see if user is logged in! */}
-            <Button onClick = {e => this.setState({edit: true})}>Edit</Button>
-         </span>
+            <div className = 'topics'>
+               <Header as= 'h3' className ='bottom-line'>
+                  Created By: {threadValue.user_created}
+               </Header>
+               {threadValue.body}
+            <span>
+               Date:{threadValue.date_created}
+               </span>
+            </div>
          </div>
-      </div>
-         
-      )
+         )
+      }
+      else if (this.props.userLog === threadValue.user_created) {
+         return(
+            <div className = 'main' key = {threadValue}>
+               <Header as= 'h2' className = 'title'>
+               {threadValue.title}
+               </Header>
+            <div className = 'topics'>
+               <Header as= 'h3' className ='bottom-line'>
+                  Created By: {threadValue.user_created}
+               </Header>
+                  {threadValue.body}
+            <span>
+               Date:{threadValue.date_created}
+               {/* check to see if user is logged in! */}
+               <Button onClick = {e => this.setState({edit: true})}>Edit</Button>
+            </span>
+            </div>
+         </div>
+         )
+      }
    }
    render() {
       if(this.state.edit === false){
