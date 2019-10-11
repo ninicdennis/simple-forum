@@ -1,9 +1,15 @@
 ## Simple Forum
 
 This is a simplistic forum created in react as a final project for Helio. I will be using react as the front end,
-and using Hapi + knex for the API/Backend. 
+and using Hapi + knex for the API/Backend.
 
-To run:
+# LIVE
+
+https://simple-forum-main.herokuapp.com/
+
+Please note, this is a work in progress and is typically behind 1 or 2 commits.
+
+## Setup
 
 To start, please run npm install in the /src folder. This may take a while.
 
@@ -32,4 +38,8 @@ Front end is located at http://locaslhost:3000
 API is located at http://localhost:5251
 
 Backend is run through a docker container using postgres.
+
+## Common Issues
+
+auth0 "type" is undefined - install eslint, this is a recent issue with eslint and node modules.
 
