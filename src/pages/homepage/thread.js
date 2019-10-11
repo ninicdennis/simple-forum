@@ -52,11 +52,12 @@ class ThreadBuild extends React.Component {
    redirectUser = (event, thread) => {
       event.preventDefault()
       console.log('Moving to: ', thread)
-      this.props.history.push('/topic/' + thread)
+      this.props.history.push(`/topic/${thread}`)
+      
    }
 
-   render() {
-      var renderMe = this.state.backendThread.map(threadProperties => {
+   renderTopicList = () => {
+      var renderThreads = this.state.backendThread.map(threadProperties => {
          console.log(threadProperties)
          var buttonRender = () => {
             if(this.props.userLog === false) {
@@ -83,8 +84,6 @@ class ThreadBuild extends React.Component {
          return ( 
            <div className = 'whitespace' key = {threadProperties.thread_id} >
             <article>
-               
-
             <Header  as = 'h2' className = 'header-thread'>
                {threadProperties.title}
             </Header>
@@ -105,15 +104,24 @@ class ThreadBuild extends React.Component {
                </div>
             </div>
          </article>
-         
          </div>
          )
       });
       return (
          <div>
             <div className = 'spacing'>
-               {renderMe}
+               {renderThreads}
             </div>
+         </div>
+      )
+   }
+
+   render() {
+      
+      
+      return (
+         <div>
+            {this.renderTopicList()}
          </div>
       )
    }
